@@ -6,21 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#" type="image/x-icon">
     <title>Cadastro e Lista de Alunos</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
         rel="stylesheet">
-
-    <style>
-        /* Ajuste adicional para os botões de ação */
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-    </style>
 </head>
 
 <body class="bg-light">
@@ -38,7 +28,7 @@
         <section aria-labelledby="cadastro-alunos">
             <h2 id="cadastro-alunos" class="text-center pb-4">Cadastro de Aluno</h2>
 
-            <form class="row g-3 border bg-light shadow py-2 rounded">
+            <form id="form-aluno" class="row g-3 border bg-light shadow py-2 rounded">
                 <div class="col-md-6">
                     <label for="nome" class="form-label">Nome do Aluno</label>
                     <input type="text" class="form-control" id="nome" placeholder="Digite o nome completo" required>
@@ -77,12 +67,12 @@
                             <th class="text-center">Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="aluno-lista">
                         <tr>
                             <td>1</td>
                             <td>Ana Silva</td>
                             <td>20</td>
-                            <td>Turma A</td>
+                            <td>A</td>
                             <td>ana.silva@email.com</td>
                             <td class="text-center action-buttons">
                                 <button class="btn btn-sm btn-warning me-1">
@@ -97,7 +87,7 @@
                             <td>2</td>
                             <td>Bruno Souza</td>
                             <td>22</td>
-                            <td>Turma B</td>
+                            <td>B</td>
                             <td>bruno.souza@email.com</td>
                             <td class="text-center action-buttons">
                                 <button class="btn btn-sm btn-warning me-1">
@@ -112,7 +102,7 @@
                             <td>3</td>
                             <td>Carla Oliveira</td>
                             <td>19</td>
-                            <td>Turma C</td>
+                            <td>C</td>
                             <td>carla.oliveira@email.com</td>
                             <td class="text-center action-buttons">
                                 <button class="btn btn-sm btn-warning me-1">
@@ -127,7 +117,7 @@
                             <td>4</td>
                             <td>Daniel Costa</td>
                             <td>21</td>
-                            <td>Turma D</td>
+                            <td>D</td>
                             <td>daniel.costa@email.com</td>
                             <td class="text-center action-buttons">
                                 <button class="btn btn-sm btn-warning me-1">
@@ -142,7 +132,7 @@
                             <td>5</td>
                             <td>Eduarda Lima</td>
                             <td>23</td>
-                            <td>Turma E</td>
+                            <td>E</td>
                             <td>eduarda.lima@email.com</td>
                             <td class="text-center action-buttons">
                                 <button class="btn btn-sm btn-warning me-1">
@@ -157,7 +147,7 @@
                             <td>6</td>
                             <td>Felipe Alves</td>
                             <td>20</td>
-                            <td>Turma F</td>
+                            <td>F</td>
                             <td>felipe.alves@email.com</td>
                             <td class="text-center action-buttons">
                                 <button class="btn btn-sm btn-warning me-1">
@@ -176,6 +166,7 @@
 
     <!-- Bootstrap JS (Opcional), por padrão prefiro deixar  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

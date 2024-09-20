@@ -1,6 +1,6 @@
 
 body {
-    background-image: url('../images/v915-wit-011-f.jpg');
+    background-image: url('../images/rm209-ning-16-a.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,4 +9,12 @@ body {
 
 .bg-light {
     background-color: rgba(255, 255, 255, 0.8) !important; /* Torna o fundo dos componentes levemente opaco */
+}
+
+/* Ajuste adicional para os botões de ação */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-wrap: wrap;
 }
