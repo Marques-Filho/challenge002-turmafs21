@@ -40,23 +40,70 @@ function excluirAluno(id) {
     renderizarAlunos();
 }
 
-// Função para carregar os dados de um aluno no formulário
+// Função para carregar os dados de um aluno no modal
 function editarAluno(id) {
     const aluno = alunos.find(aluno => aluno.id === id);
     if (aluno) {
-        document.getElementById('nome').value = aluno.nome;
-        document.getElementById('idade').value = aluno.idade;
-        document.getElementById('turma').value = aluno.turma;
-        document.getElementById('email').value = aluno.email;
+        // Preencher o modal com os dados do aluno
+        document.getElementById('edit-nome').value = aluno.nome;
+        document.getElementById('edit-idade').value = aluno.idade;
+        document.getElementById('edit-turma').value = aluno.turma;
+        document.getElementById('edit-email').value = aluno.email;
 
-        // Substituir o botão de cadastrar pelo botão de atualizar
-        const submitBtn = document.querySelector('button[type="submit"]');
-        submitBtn.textContent = 'Atualizar Aluno';
-        submitBtn.onclick = function () {
+        // Salvar as alterações ao clicar no botão "Salvar Alterações"
+        document.getElementById('saveChangesBtn').onclick = function () {
             atualizarAluno(id);
         };
+
+        // Abrir o modal
+        var editModal = new bootstrap.Modal(document.getElementById('editAlunoModal'));
+        editModal.show();
     }
 }
+
+// Função para atualizar os dados do aluno a partir do modal (renomeada para evitar conflito)
+function atualizarAlunoModal(id) {
+    const nome = document.getElementById('edit-nome').value;
+    const idade = document.getElementById('edit-idade').value;
+    const turma = document.getElementById('edit-turma').value;
+    const email = document.getElementById('edit-email').value;
+
+    alunos = alunos.map(aluno => {
+        if (aluno.id === id) {
+            return { id, nome, idade, turma, email };
+        }
+        return aluno;
+    });
+
+    renderizarAlunos();
+
+    // Fechar o modal
+    var editModal = bootstrap.Modal.getInstance(document.getElementById('editAlunoModal'));
+    editModal.hide();
+}
+
+// Função para carregar os dados de um aluno no modal
+function editarAluno(id) {
+    const aluno = alunos.find(aluno => aluno.id === id);
+    if (aluno) {
+        // Preencher o modal com os dados do aluno
+        document.getElementById('edit-nome').value = aluno.nome;
+        document.getElementById('edit-idade').value = aluno.idade;
+        document.getElementById('edit-turma').value = aluno.turma;
+        document.getElementById('edit-email').value = aluno.email;
+
+        // Salvar as alterações ao clicar no botão "Salvar Alterações"
+        document.getElementById('saveChangesBtn').onclick = function () {
+            atualizarAlunoModal(id);  // Aqui chamamos a função correta
+        };
+
+        // Abrir o modal
+        var editModal = new bootstrap.Modal(document.getElementById('editAlunoModal'));
+        editModal.show();
+    }
+}
+
+
 
 // Função para atualizar um aluno
 function atualizarAluno(id) {
